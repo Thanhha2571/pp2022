@@ -14,11 +14,11 @@ print(listofstudent);
 
 numofcourses = int(input("Number of courses:"));
 listofcourse = [];
-for i in range(numofcourse):
+for i in range(numofcourses):
     course_info = {};
     name_course = input("Name of course:");
     ID_course = input("ID:");
-    course_info["ID"] = ID_student;
-    course_info["Name"] = name_student;
+    course_info["ID_course"] = ID_course;
+    course_info["Name_course"] = name_course;
     listofcourse.append(course_info);
 print(listofcourse);
