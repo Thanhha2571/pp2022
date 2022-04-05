@@ -1,70 +1,95 @@
-def Studentcount():
-    student_count = int(input("Number of students in class are:"));
-    return student_count
-
 class Student:
-    def __init__ (self, ids, names, dateofbirth):
-        self.ids = ids;
-        self.names = names;
-        self.dateofbirth = dateofbirth;
+    def __init__(self, studentid, studentname, studentDoB):
+        self.studentid = studentid
+        self.studentname = studentname
+        self.studentDoB = studentDoB
 
-    
-    def get_ids(self):
-        return self.ids
+    def get_studentid(self):
+        return self.studentid
+
+    def get_studentname(self):
+        return self.studentname
+
+    def get_studentDoB(self):
+        return self.studentDoB
+
+    def set_studentid(self, studentid):
+        self.studentid = studentid
+
+    def set_studentname(self, studentname):
+        self.studentname = studentname
+
+    def set_studentDoB(self, studentDoB):
+        self.studentDoB = studentDoB
+
+    def displayStudentInfo(self):
+        print("- Student ID:" +self.studentid + ", Student name:" + self.studentname + ", Student DoB:" +self.studentDoB)
         
-    def get_names(self):
-        return self.names
-        
-    def get_dateofbirth(self):
-        return self.dateofbirth
-
-    def set_ids(self, _ids):
-        self.ids = _ids
-
-    def set_names(self, _names):
-        self.names = _names
-        
-    def set_dateofbirth(self, _dateofbirth):
-        self.dateofbirth = _dateofbirth
-        
-    def displayStudent(self):
-        print(f"- Student ID: {self.ids}")
-        print(f"- Student Name: {self.names}")
-        print(f"- DoB: {self.dateofbirth}")
-
-def student_info():
-    id_s = input("Student ID:");
-    name_s = input("Student name:");
-    dateofbirth_s = input("Date of birth:");
-    return id_s, name_s, dateofbirth_s
-
-def Coursecount():
-    course_count = int(input("Number of course:"));
-    return course_count
-
 
 class Course:
-    def __init__ (self, idc, namec ):
-        self.idc = idc;
-        self.namec = namec;
-        
-    def get_idc(self):
-        return self.idc
-        
-    def get_namec(self):
-        return self.namec
-        
+    def __init__(self, courseid, coursename):
+        self.courseid = courseid
+        self.coursename = coursename
 
-    def set_ids(self, _idc):
-        self.idc = _idc
+    def get_courseid(self):
+        return self.courseid
 
-    def set_namec(self, _namec):
-        self.namec = _namec
-        
-    def displayStudent(self):
-        print(f"- Course ID: {self.idc}")
-        print(f"- Course Name: {self.namec}")
-def course_info():
-    id_c = input("Course ID:");
-    name_c = input("Course name:");
-    return id_c, name_c
+    def get_coursename(self):
+        return self.coursename
+
+    def set_courseid(self, courseid):
+        self.courseid = courseid
+
+    def set_coursename(self, coursename):
+        self.coursename = coursename
+
+    def displayCourseInfo(self):
+        print("- Course ID:" + self.courseid + ", Course name:" +self.coursename)
+
+
+def numberofstudent():
+    numberofstudent = int(input("Number of students in class:"))
+    return numberofstudent
+
+
+def StudentInfo():
+    student_id = input("Enter student ID: ")
+    student_name = input("Enter student name: ")
+    student_DoB = input("Enter student DoB: ")
+    return student_id, student_name, student_DoB
+
+
+def numberofcourse():
+    numberofcourse = int(input("Number of courses:"))
+    return numberofcourse
+
+
+def CourseInfo():
+    course_id = input("Enter course ID: ")
+    course_name = input("Enter course name: ")
+    return course_id, course_name
+
+
+
+if __name__ == "__main__":
+    students = []
+    courses = []
+
+    numberofstudent = numberofstudent()
+    for i in range(0, numberofstudent):
+        studentid, studentname, studentDoB = StudentInfo()
+        students.append(Student(studentid, studentname, studentDoB))
+    print("LIST ALL OF STUDENTS:\n")
+    for student in students:
+        student.displayStudentInfo()
+    
+    
+    numberofcourse = numberofcourse()
+    for i in range(0, numberofcourse):
+        courseid, coursename = CourseInfo()
+        courses.append(Course(courseid, coursename))
+
+
+    print("LIST ALL OF COURSES:\n")
+    for course in courses:
+        course.displayCourseInfo()
